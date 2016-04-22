@@ -1,16 +1,13 @@
-# Philips_CSCI2270_FinalProject
+#Data Structures Final Project
+**Jarrett Philips**
 
-Will become a heading
+Project Objective
 ==============
+A workout tracking program.
 
-Will become a sub heading
---------------
+A user will be able to track progress on individual exercises, then review progress over time.
 
-*This will be Italic*
-
-**This will be Bold**
-
-- This will be a list item
-- This will be a list item
-
-    Add a indent and this will end up as code
+- It will utilized a "linked list of linked lists". Using the first for each exercise and the second for each entry log
+- Data will be stored in a text file for future access
+- There will be an exercise class, and will be created for each new exercise (e.g. Bench Press) and contain all information logs on that exercise
+- There will be an entry struct, with it's primary operation to store data from each individual log
