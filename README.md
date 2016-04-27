@@ -1,13 +1,28 @@
-#Data Structures Final Project
+# Data Structures Final Project
 **Jarrett Philips**
 
-Project Objective
-==============
-A workout tracking program.
+### Project Summary
+A simple Blackjack dealer. 
 
-A user will be able to track progress on individual exercises, then review progress over time.
+The game is the standard version of blackjack, involving a dealer (run by the program), and 1+ players. The game can also be run with any number of decks desired. The game follows the common rules of blackjack, the goal is to beat the dealer's hand while not going over 21 points in value. Currently, Ace's are always considered 11 points.
 
-- It will utilized a "linked list of linked lists". Using the first for each exercise and the second for each entry log
-- Data will be stored in a text file for future access
-- There will be an exercise class, and will be created for each new exercise (e.g. Bench Press) and contain all information logs on that exercise
-- There will be an entry struct, with it's primary operation to store data from each individual log
+### Running
+1. Navigate to folder containing source files in terminal
+2. Compile source with "g++ Main.cpp Game.cpp"
+3. To execute, run "./a.out"
+4. The program will lead you through the final steps of setting up a game to your liking
+
+### Dependencies
+This project requires no external dependencies.
+
+### System Requirements
+Project has only been run on Mac and C++ 11, but should operate on any operating system. There should not be any hardware requirements, outside of having a computer capable of compiling and running C++ source code.
+
+### Group Members
+Jarrett Philips
+
+### Contributors
+N/A
+
+## Open	Issues
+- Cards generate in random order, but always the same random order
