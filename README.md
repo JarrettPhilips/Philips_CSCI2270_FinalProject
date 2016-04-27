@@ -1,4 +1,4 @@
-# Data Structures Final Project
+# Blackjack Data Structures Final Project
 **Jarrett Philips**
 
 ### Project Summary
