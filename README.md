@@ -12,16 +12,15 @@ The game is the standard version of blackjack, involving a dealer (run by the pr
 3. To execute, run "./a.out"
 4. The program will lead you through the final steps of setting up a game to your liking
 
-### Dependencies
-This project requires no external dependencies.
-
 ### System Requirements
 Project has only been run on Mac and C++ 11, but should operate on any operating system. There should not be any hardware requirements, outside of having a computer capable of compiling and running C++ source code.
 
-### Group Members
-Jarrett Philips
+### Dependencies
+This project requires no external dependencies.
 
-### Contributors
+##### Group Members
+Jarrett Philips
+##### Contributors
 N/A
 
 ## Open	Issues
