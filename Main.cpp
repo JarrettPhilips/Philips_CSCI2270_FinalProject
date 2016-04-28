@@ -23,14 +23,9 @@
 using namespace std;
 
 /*
-	Functions
-*/
-
-/*
 	Main
 */
 int main(){
-	//cout << "Hello World!" << endl;
 	//Set up
 	int numberOfPlayers;
 	int numberOfDecks;
@@ -94,6 +89,7 @@ int main(){
 		g.startDealersTurn();
 		bool playersDone = false;
 
+		//Cycles until all players are done
 		while(playersDone == false){
 			playersDone = true;
 			for(int i = 0; i < numberOfPlayers; i ++){
@@ -109,6 +105,7 @@ int main(){
 			}
 		}
 
+		//Calculating final outcome of round
 		cout << YELLOW << "======= Finishing Dealer's Turn ========" << RESET << endl;
 		g.finishDealersTurn();
 
@@ -138,6 +135,6 @@ int main(){
 
 		round ++;
 	}
-
+	
 	cout << "Thank you for playing!" << endl;
 }

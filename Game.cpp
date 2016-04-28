@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include <time.h>
 
 #include "Game.h"
 
@@ -109,6 +110,7 @@ void Game::finishDealersTurn(){
 	cout << "Total Value: " << dealer->totalValue << endl; 
 }
 
+//Takes a player's actions
 bool Game::playersTurn(Player *player){ //Basic hit or pass cycle
 	player->totalValue = 0;
 
@@ -160,6 +162,7 @@ bool Game::playersTurn(Player *player){ //Basic hit or pass cycle
 	return true;
 }
 
+//Calculates final winnings on final values
 void Game::determineWinnings(){
 	Player *p = rootPlayer;
 	bool playerWon = false;
@@ -187,7 +190,8 @@ void Game::determineWinnings(){
 	}
 }
 
-void Game::buildDeck(){ //Creates a randomized deck of cards
+//Creates a randomized deck of cards
+void Game::buildDeck(){ 
 	string suits[4] = {"Hearts", "Clubs", "Diamonds", "Spades"};
 	string ranks[13] = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eignt", "Nine", "Ten", "Jack", "Queen", "King"};
 	int values[13] = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
@@ -223,6 +227,7 @@ void Game::buildDeck(){ //Creates a randomized deck of cards
 					*/
 
 					//Adds cards randomly
+					srand (time(NULL));
 					int x = rand() % currentDeckLength;
 					if(x == 0){
 						x = 1;
@@ -241,7 +246,7 @@ void Game::buildDeck(){ //Creates a randomized deck of cards
  			}
 		}
 	}
-
+	srand (time(NULL));
 	int x = rand() % currentDeckLength;
 	if(x == 0){
 		x = 1;
@@ -257,7 +262,7 @@ void Game::buildDeck(){ //Creates a randomized deck of cards
 	tmpRoot->next = current->next;
 	current->next = tmpRoot;
 
-	/*
+	
 	//Outputs current deck structure
 	cout << "==============" << endl;
 	cout << "Current Deck" << endl;
@@ -268,11 +273,11 @@ void Game::buildDeck(){ //Creates a randomized deck of cards
 		cout << current->rank << " of " << current->suit << endl;
 		current = current->next;
 	}
-	*/
 
 	rootCard = newRoot;
 }
 
+//Returns and removes a card from the deck
 Card * Game::drawCard(){
 	if(rootCard == NULL){
 		buildDeck();
@@ -285,6 +290,7 @@ Card * Game::drawCard(){
 	return c;
 }
 
+//Returns the player next in line for their turn
 Player * Game::getNextPlayer(){
 	Player *p = currentPlayer;
 	if(currentPlayer->next == NULL){
@@ -295,6 +301,7 @@ Player * Game::getNextPlayer(){
 	return p;
 }
 
+//Simple output of accounts
 void Game::displayFunds(){
 	cout << "==== Funds ====" << endl;
 	Player *p = rootPlayer;
@@ -304,6 +311,7 @@ void Game::displayFunds(){
 	}
 }
 
+//Collects info from users on bets from players
 void Game::collectBets(){
 	Player *p = rootPlayer;
 	while(p != NULL){

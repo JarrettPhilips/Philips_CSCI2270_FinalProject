@@ -24,8 +24,11 @@ Jarrett Philips
 N/A
 
 ## Open	Issues
-- Cards generate in random order, but always the same random order
 - Occasionally a "Bus Error: 10" occurs after the start of the dealer's turn on round 1
 	- Simply reinitiating the ./a.out file seems to fix it
 - Occasionally there is a "segmentation fault: 11" error, cause unknown
 	- Simply reinitiating the ./a.out file seems to fix it
+
+### Fixed Issues
+- FIXED Cards generate in random order, but always the same random order
+	- FIX; Incorrent use of rand() function
