@@ -22,6 +22,9 @@ struct Player{
 	int money;
 	Card *playerRootCard;
 	Player *next;
+	bool done;
+	int totalValue;
+	int bet;
 };
 
 class Game{
@@ -34,6 +37,10 @@ public:
 	bool playersTurn(Player *player);
 	Player * getNextPlayer();
 	void determineWinnings();
+	void displayFunds();
+	void collectBets();
+	void checkForBrokePlayers();
+	bool checkForGameOver();
 private:
 	int numberOfDecks;
 	Player *rootPlayer;
