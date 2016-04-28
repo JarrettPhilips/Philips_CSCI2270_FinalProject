@@ -9,13 +9,9 @@ The game is a fairly standard version of blackjack, involving a dealer (run by t
 ### Running
 1. Navigate to folder containing source files in terminal
 2. Compile source with
-	'''
-	g++ Main.cpp Game.cpp
-	'''
+    g++ Main.cpp Game.cpp
 3. To execute, run 
-	'''
-	./a.out
-	'''
+    ./a.out
 4. The program will lead you through the final steps of setting up a game to your liking
 
 ### System Requirements
