@@ -31,27 +31,39 @@ int main(){
 	int numberOfDecks;
 	int startingMoney;
 	string input;
+    
+    cout << RESET << "Enter number of players, up to 5: ";
+    while (!(cin>>numberOfPlayers) || numberOfPlayers < 1 || numberOfPlayers > 6){ //for example
+    cout << RESET << "Enter number of players, up to 5: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    }
+    
+    cout << "Enter amount of money each player will start with, up to  a million dollars: ";
+    while (!(cin>>startingMoney) || startingMoney < 1 || startingMoney > 100000000){
+	cout << "Enter amount of money each player will start with, up to  a million dollars: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    }
 
-	cout << RESET << "Enter number of players: ";
-	getline(cin, input);
-	numberOfPlayers = stoi(input);
+    cout << "Enter number of decks, up to 3: ";
+    while (!(cin>>numberOfDecks) || numberOfDecks < 0 || numberOfDecks > 4) { //for example
+	cout << "Enter number of decks, up to 3: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    }
 
-	cout << "Enter amount of money each player will start with: ";
-	getline(cin, input);
-	startingMoney = stoi(input);
-
-	cout << "Enter number of decks: ";
-	getline(cin, input);
-	numberOfDecks = stoi(input);
-
+    
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    
 	cout << "Setting up a game with with " << numberOfPlayers << " players each with $" << startingMoney << " and " << numberOfDecks << " decks..." << endl;
 
 	Player *root = NULL;
-
+    
+    Game g;
 	for(int i = 0; i < numberOfPlayers; i ++){
-		Player *tmp = new Player;
-		tmp->money = startingMoney;
-		tmp->playerID = i + 1;
+		Player *tmp = new Player(i, startingMoney);
 
 		if(root == NULL){
 			root = tmp;
@@ -66,7 +78,6 @@ int main(){
 		}
 	}
 
-	Game g;
 	g.set(root, numberOfDecks);
 	bool running = true;
 	int round = 1;
