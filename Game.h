@@ -1,9 +1,3 @@
-/*
-	Jarrett Philips
-	BlackJack
-	Game header
-*/
-
 #ifndef GAME_H
 #define GAME_H
 
