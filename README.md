@@ -20,8 +20,9 @@ This project requires no external dependencies.
 
 #### Group Members
 Jarrett Philips
+
 #### Contributors
-N/A
+Aliisa Roe
 
 ## Open	Issues
 - Occasionally a "Bus Error: 10" occurs after the start of the dealer's turn on round 1
