@@ -8,7 +8,6 @@
 #define GAME_H
 
 #include <string>
-#include <vector>
 
 struct Card{
 	std::string rank;
@@ -26,16 +25,7 @@ struct Player{
 	bool done;
 	int totalValue;
 	int bet;
-    
-    Player(int in_id, int in_money){
-        playerID = in_id;
-        playerRootCard = NULL;
-        next = NULL;
-        done = false;
-        money = in_money;
-    }
 };
-
 
 class Game{
 public:

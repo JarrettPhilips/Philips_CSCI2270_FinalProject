@@ -7,7 +7,6 @@
 #include <iostream>
 #include <string>
 #include <time.h>
-#include <vector>
 
 #include "Game.h"
 
@@ -34,14 +33,14 @@ Game::Game(){
 	Destructors
 */
 Game::~Game(){
+
 }
 
 /*
 	Functions
 */
-
 void Game::set(Player *player1, int numberOfDecksInput){
-	dealer = new Player(-1, -1); // invalid inputs to signify "special" case?
+	dealer = new Player;
 	dealer->playerID = 0;
 	rootPlayer = player1;
 	currentPlayer = player1;
@@ -182,7 +181,7 @@ void Game::determineWinnings(){
 			cout << GREEN << "Player " << p->playerID << " Won! Adding " << p->bet << RESET << endl;
 			p->money += p->bet;
 		} else {
-			cout << RED << "Player " << p->playerID << " Lost! Removing $" << p->bet << RESET << endl;
+			cout << RED << "Player " << p->playerID << " Lost! Removing " << p->bet << RESET << endl;
 			p->money -= p->bet;
 		}
 
@@ -250,14 +249,14 @@ void Game::buildDeck(){
 	srand (time(NULL));
 	int x = rand() % currentDeckLength;
 	if(x == 0){
-		x = 1;          //could add one instead
+		x = 1;
 	}
 
 	//Randomized root
 	Card *current = tmpRoot;
 
 	for(int l = 0; l < x - 1; l ++){
-        current = current->next;
+		current = current->next;
 	}
 	Card *newRoot = tmpRoot->next; 
 	tmpRoot->next = current->next;
@@ -317,17 +316,19 @@ void Game::collectBets(){
 	Player *p = rootPlayer;
 	while(p != NULL){
 		bool acceptableBet = false;
-        int bet;
-        cout << "Player " << p->playerID << " enter a bet: $";
-		while( !(cin>>bet) || bet > p->money || bet < 0){
+		while(acceptableBet == false){
 			cout << "Player " << p->playerID << " enter a bet: ";
-            cout << RED << "You cannot bet more money than you have" << RESET << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			string input;
+			getline(cin, input);
+			int bet = stoi(input);
+
+			if(bet <= p->money){
+				acceptableBet = true;
+				p->bet = bet;
+			} else {
+				cout << RED << "You cannot bet more money than you have" << RESET << endl;
+			}
 		}
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        p->bet = bet;
 
 		p = p->next;
 	}
@@ -340,6 +341,7 @@ void Game::checkForBrokePlayers(){
 	while(p != NULL){
 		if(p->money <= 0){
 			cout << RED << "Player " << p->playerID << " is out of money, removing from game" << RESET << endl;
+
 			if(p == rootPlayer){
 				rootPlayer = p->next;
 			} else {
